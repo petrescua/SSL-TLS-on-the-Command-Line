@@ -9,11 +9,32 @@ Using s_client -connect and -brief in the comman line allows for the ovbervation
 
 Questions:
 1. What TLS version was negotiated? What cipher was used?
+The negotiated version referes to the highest TLS version supported by both the server and the client. In this case this is case it is TLSv1.3 as shown in the line Protocol version: TLSv1.3. Cipher used can be seen in the output ciphersuite: TLS_AES_256_GCM_SHA384
 
 2. Who is the Certificate Authority (CA) that issued the certifictae? Is it a root CA or an intermediate CA? 
+Under CA Issuer in the .pem file, the certificate that is downloaded shows it is issues by GTS Root R1. Tipically an intermediate CA is used to communicate between server certificate and root CA.
 
 3. What is the public key algorithm and key size? Is this considered secure by current standards?
+Public key size: 256 bit and key algorithm is ECDSA wih P-256. This is considered highly secure.
 
 4. What are the Subjects Alternative Names (SANs)? Why are SANs important rather than replying solely on the Common Name (CN)?
+SAN alows for multiple domain names to be secure through a single certificate. In this case under SAN there is only www.google.com. SANs are better it allows for multiple names whist CN only allows for one.
 
 5. What is the certificate's validity period? What would happen if you visited the site after the expiry date?
+This certificates valididate date is until 20/02/2029. With an expired certificate, the site will show a not secure warning and automated tools such as APIs will not work, even if you are able to acess the website.
+
+Task 2
+by using -showcerts I can see all the certificates that the server has sent
+
+Questions:
+1. How many certificates are in the chain for the site you tested?
+
+2. Why does the server send intermediate certificates but not the root? What would 
+happen if the intermediate were missing?
+
+3.How many root CAs does your system trust? What are the security implications of 
+this number being large?
+
+4.What is the difference between a root CA and an intermediate CA? Why do CAs use 
+intermediates rather than signing directly with the root?
+
