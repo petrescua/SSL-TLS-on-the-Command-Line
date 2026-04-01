@@ -1,0 +1,19 @@
+This exerice will allow me to show my skills:
+- Using OpenSSL to connect to TLS-protected services and inspecting the handshake
+- Read and interpret certificates
+- Identify weak TLS configuration using command-line tools
+- Set up a local TLS server and client using OpenSSL
+
+Task 1: Connecting to a TLS Server with s_client
+Using s_client -connect and -brief in the comman line allows for the ovbervation of the handshake, which shows the ceritifcate chain the server certificate and handshake parameters. By puting the certificate contentance in a file and them making readable by using the command line openssl x509 -in file.pem -text -noout , the certificate is human readable. In order to have a look at a real certificate, I used google.com's certificate. All below questions will be answered based on that certificate.
+
+Questions:
+1. What TLS version was negotiated? What cipher was used?
+
+2. Who is the Certificate Authority (CA) that issued the certifictae? Is it a root CA or an intermediate CA? 
+
+3. What is the public key algorithm and key size? Is this considered secure by current standards?
+
+4. What are the Subjects Alternative Names (SANs)? Why are SANs important rather than replying solely on the Common Name (CN)?
+
+5. What is the certificate's validity period? What would happen if you visited the site after the expiry date?
